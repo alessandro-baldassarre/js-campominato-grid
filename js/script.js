@@ -20,20 +20,20 @@ const preGameElement =document.getElementById("game-instructions");
 const resetGameElement =document.getElementById("game-reset");
 
 
-
-
-// when the user presses the button I perform certain operations
+// when the user clicks the button the program performs certain operations
 buttonPlay.addEventListener("click", function(){
 
+// hides or displays the game layout
 preGameElement.classList.toggle("d-none");
 resetGameElement.classList.toggle("d-none");
 gridElementWrapper.classList.toggle("d-none");
 
+//declare a new grid cell
 let newGridElement;
 
 const userSelection = document.querySelector("select").value;
     
-    // check the selection that the user has chosen and perform certain operations based on it
+// check the selection that the user has chosen and the program performs certain operations based on it
 switch (userSelection) {
 
     case 'opt-easy':
@@ -85,6 +85,12 @@ buttonReset.addEventListener("click", function(){
     gridElement.innerHTML = "";
 
 });
+
+
+
+
+
+/***********************FUNCTIONS**********************************/
 
 /**
  * function that creates a DOM element of type div given as input the DOM element in which we want to insert it and the value to add to the div we are creating

@@ -9,12 +9,27 @@
 // saved in the variables the DOM elements that i need
 const gridElement = document.getElementById("grid");
 
-
+const gridElementWrapper = document.getElementById("grid-bg");
 
 const buttonPlay = document.getElementById("btn-play");
 
+const buttonReset = document.getElementById("btn-reset");
+
+const preGameElement =document.getElementById("game-instructions");
+
+const resetGameElement =document.getElementById("game-reset");
+
+
+
+
 // when the user presses the button I perform certain operations
 buttonPlay.addEventListener("click", function(){
+
+preGameElement.classList.toggle("d-none");
+resetGameElement.classList.toggle("d-none");
+gridElementWrapper.classList.toggle("d-none");
+
+let newGridElement;
 
 const userSelection = document.querySelector("select").value;
     
@@ -23,27 +38,36 @@ switch (userSelection) {
 
     case 'opt-easy':
         
+        // cycle that creates a new cell of the grid for "i" times
         for( let i = 1; i <= 100; i++ ){
 
-            createNewDiv(gridElement, i);
+            newGridElement = createNewDiv(gridElement, i);
+
+            clicked(newGridElement);
         }
         
         break;
 
     case 'opt-midd':
 
+        // cycle that creates a new cell of the grid for "i" times
         for( let i = 1; i <= 81; i++ ){
 
-            createNewDiv(gridElement, i);
+            newGridElement = createNewDiv(gridElement, i);
+
+            clicked(newGridElement);
         }
         
         break;
 
     case 'opt-hard':
 
+        // cycle that creates a new cell of the grid for "i" times
         for( let i = 1; i <= 49; i++ ){
 
-            createNewDiv(gridElement, i);
+            newGridElement = createNewDiv(gridElement, i);
+
+            clicked(newGridElement);
         }
         
         break;
@@ -51,7 +75,23 @@ switch (userSelection) {
 
 });
 
+buttonReset.addEventListener("click", function(){
 
+    resetGameElement.classList.toggle("d-none");
+    preGameElement.classList.toggle("d-none");
+    gridElementWrapper.classList.toggle("d-none");
+
+
+    gridElement.innerHTML = "";
+
+});
+
+/**
+ * function that creates a DOM element of type div given as input the DOM element in which we want to insert it and the value to add to the div we are creating
+ * 
+ * @param {*} domElement 
+ * @param {*} innerElement 
+ */
 function createNewDiv(domElement, innerElement){
 
     const newElement = document.createElement("div");
@@ -60,5 +100,23 @@ function createNewDiv(domElement, innerElement){
 
     domElement.appendChild(newElement);
 
+    return newElement;
+
+
+}
+
+/**
+ * function that given in input an element of the DOM if it is clicked adds the attached class
+ * 
+ * @param {*} element 
+ */
+
+function clicked(domElement){
+
+    domElement.addEventListener( "click", function() {
+
+        this.classList.add("clicked");
+
+    });
 
 }

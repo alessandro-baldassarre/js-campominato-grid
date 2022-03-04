@@ -26,4 +26,10 @@ header{
 .box{
     width: calc((40vw - 1rem) / 10);
     height: calc((40vw - 1rem) / 10);
+    cursor: crosshair;
+}
+
+.box.clicked{
+    background-color:blue;
+    color: white;
 }

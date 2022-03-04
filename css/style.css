@@ -1,1 +1,29 @@
 
+header{
+    height: 80px;
+}
+
+#wrapper-game-instructions,
+#wrapper-grid-bg
+{
+    height: calc(100vh - 80px);
+}
+
+#wrapper-game-instructions #game-instructions{
+    width: 80%;
+    height: 60%;
+}
+
+#grid-bg{
+    width: 40vw;
+    
+}
+
+#grid{
+    
+}
+
+.box{
+    width: calc((40vw - 1rem) / 10);
+    height: calc((40vw - 1rem) / 10);
+}

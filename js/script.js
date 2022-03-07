@@ -43,6 +43,8 @@ switch (userSelection) {
 
             newGridElement = createNewDiv(gridElement, i);
 
+            newGridElement.classList.add("easy-width");
+
             clicked(newGridElement);
         }
         
@@ -55,6 +57,8 @@ switch (userSelection) {
 
             newGridElement = createNewDiv(gridElement, i);
 
+            newGridElement.classList.add("midd-width");
+
             clicked(newGridElement);
         }
         
@@ -66,6 +70,8 @@ switch (userSelection) {
         for( let i = 1; i <= 49; i++ ){
 
             newGridElement = createNewDiv(gridElement, i);
+
+            newGridElement.classList.add("hard-width");
 
             clicked(newGridElement);
         }
@@ -101,7 +107,7 @@ buttonReset.addEventListener("click", function(){
 function createNewDiv(domElement, innerElement){
 
     const newElement = document.createElement("div");
-    newElement.classList.add("box", "p-3", "border", "text-center");
+    newElement.classList.add("box", "border", "text-center");
     newElement.innerHTML = innerElement;
 
     domElement.appendChild(newElement);
